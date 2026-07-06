@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medová kavárna | Náhled</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+/* =====================================================
+   ZÁKLAD
+===================================================== */
+
+:root {
+    --gold: #e5ab00;
+    --cream: #fff9ef;
+    --text: #3b2f23;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+
+.container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,.92);
+    backdrop-filter: blur(8px);
+    z-index: 999;
+}
+
+.nav {
+    height: 88px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    height: 58px;
+}
+
+nav ul {
+    display: flex;
+    gap: 34px;
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #222;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.nav-btn {
+    border: 2px solid var(--gold);
+    background: var(--gold);
+    color: #222;
+    padding: 10px 22px;
+    border-radius: 20px;
+}
+
+.nav-btn:hover {
+    background: transparent;
+    color: #222;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero img.bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.95) 0%,
+        rgba(255,255,255,0.90) 15%,
+        rgba(255,252,245,0.60) 30%,
+        rgba(255,250,240,0.25) 42%,
+        rgba(255,250,240,0.08) 50%,
+        rgba(255,250,240,0.00) 58%
+    );
+}
+
+.hero small {
+    color: var(--gold);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    max-width: 850px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: 60px;
+    padding-top: 35px;
+}
+
+.hero-title {
+    margin: 10px 0 10px;
+}
+
+.hero-title .script {
+    font-family: "Bree Serif", serif;
+    font-size: 82px;
+    font-weight: normal;
+    color: #3b2f23;
+    line-height: 1;
+}
+
+.hero .hero-location {
+    font-family: "Nunito", sans-serif;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: var(--gold);
+    margin-bottom: 30px;
+}
+
+.hero p {
+    font-size: 20px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 34px;
+}
+
+.btn {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 15px 36px;
+    border: 2px solid var(--gold);
+    border-radius: 20px;
+    background: var(--gold);
+    color: #222;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: #222;
+    border-color: var(--gold);
+}
+
+/* =====================================================
+   IKONY
+===================================================== */
+
+.icons {
+    padding: 70px 0;
+}
+
+.icons .grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+}
+
+.icons article {
+    text-align: center;
+}
+
+.icons article p {
+    margin-top: 8px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #222;
+    max-width: 220px;
+    margin-inline: auto;
+}
+
+.icons img {
+    width: 190px;
+    height: 190px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 0;
+}
+
+.icons h3 {
+    font-family: "Nunito", sans-serif;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #222;
+    margin-top: 4px;
+}
+
+/* =====================================================
+   O NÁS
+===================================================== */
+
+.about {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 120px 0;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-photo img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.about-family img {
+    transform: scale(1.50);
+}
+
+.about-interior img {
+    transform: scale(1.40);
+}
+
+.about h2,
+.section h2 {
+    font-family: "Bree Serif", serif;
+    font-size: 54px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.section-intro {
+    max-width: 760px;
+    margin: 0 auto 50px;
+    text-align: center;
+    font-size: 18px;
+    color: #444;
+    line-height: 1.8;
+}
+
+#dorty-zakusky h2 {
+    text-align: center;
+}
+
+
+/* =====================================================
+   ODDĚLOVAČ SEKCÍ
+===================================================== */
+
+.divider {
+    width: 100%;
+    height: 2px;
+    background: #e7d8bf;
+}
+
+/* =====================================================
+   OBECNÉ SEKCE
+===================================================== */
+
+.section {
+    padding: 110px 0;
+}
+
+.section.alt {
+    background: var(--cream);
+}
+
+
+/* =====================================================
+   GALERIE DORTŮ A ZÁKUSKŮ
+===================================================== */
+
+.desserts-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin-top: 55px;
+}
+
+.desserts-gallery img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    display: block;
+    border: 4px solid #fff;;
+    transition: .3s;
+}
+
+/* =====================================================
+   BANNER MED
+===================================================== */
+
+.honey-banner {
+    padding: 40px 0 110px;
+}
+
+.honey-banner picture {
+    display: block;
+}
+
+.honey-banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+}
+
+#med {
+    scroll-margin-top: 100px;
+}
+
+/* =====================================================
+   KONTAKT
+===================================================== */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1.3fr 1fr;
+    gap:50px;
+    align-items:start;
+}
+
+.contact-grid small{
+    display:inline-block;
+    color:#222;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    margin-bottom:22px;
+    padding-bottom:8px;
+    border-bottom:3px solid var(--gold);
+}
+
+.contact-grid small i{
+    color: #222;
+    margin-right: 8px;
+    font-size: 15px;
+}
+
+.contact-grid h3{
+    font-family:"Bree Serif",serif;
+    font-size:26px;
+    font-weight:normal;
+    line-height:1.4;
+    margin-bottom:25px;
+}
+
+.contact-grid h3 a,
+.contact-grid p a{
+    color:inherit;
+    text-decoration:none;
+}
+
+.contact-grid p{
+    margin-bottom:18px;
+}
+
+.contact-map iframe{
+    width:100%;
+    height:100%;
+    min-height:340px;
+    border:4px solid #fff;
+    border-radius:10px;
+    display:block;
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+}
+
+.hours-list{
+    display:grid;
+    grid-template-columns:auto auto;
+    justify-content:start;
+    gap:8px 50px;
+    margin-bottom:30px;
+}
+
+.hours-list div:nth-child(even){
+    text-align:right;
+    font-weight:700;
+}
+
+.socials{
+    display:flex;
+    gap:18px;
+    margin-top:0px;
+}
+
+.socials a{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    background:#222;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-size:28px;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.socials a:hover{
+    background:var(--gold);
+    color:#222;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+    background: #2f241b;
+    color: var(--cream);
+    text-align: center;
+    padding: 28px;
+    border-top: 4px solid #e7d8bf;
+}
+
+/* =====================================================
+   MOBIL
+===================================================== */
+
+@media (max-width:900px) {
+
+    nav {
+        display: none;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .icons .grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+ .desserts-gallery {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+.contact-grid{
+    grid-template-columns:1fr;
+}
+
+.contact-map iframe{
+    min-height:300px;
+}
+
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+<a class="logo" href="#"><img src="logo.png" alt="Medová kavárna"></a>
+
+<nav>
+<ul>
+    <li><a href="#hero">DOMŮ</a></li>
+    <li><a href="#dorty-zakusky">ZÁKUSKY A DORTY</a></li>
+    <li><a href="#zmrzlina">ZMRZLINA</a></li>
+    <li><a href="#onas">O NÁS</a></li>
+    <li><a href="#med">NÁŠ MED</a></li>
+    <li><a href="#kontakt" class="nav-btn">KONTAKT</a></li>
+</ul>
+</nav>
+
+</div>
+</header>
+
+<section class="hero" id="hero">
+
+<img class="bg" src="hero.webp" alt="">
+
+<div class="container content">
+
+<small>♥ Rodinná tradice od roku 2013</small>
+
+<h1 class="hero-title">
+    <span class="script">Medová kavárna</span>
+</h1>
+
+<p class="hero-location">Bělá nad Radbuzou</p>
+
+<p>
+    Kavárna s velkým výběrem domácích zákusků,<br>
+    poctivé zmrzliny, medu a medových výrobků.
+</p>
+
+<a href="#dorty-zakusky" class="btn">Prozkoumat naši nabídku</a>
+
+</div>
+
+</section>
+
+<section class="icons">
+
+<div class="container grid">
+
+<article>
+    <img src="kavarna.webp" alt="">
+    <h3>Kavárna</h3>
+    <p>Voňavá káva, horká čokoláda a příjemné posezení.</p>
+</article>
+
+<article>
+    <img src="zakusky.webp" alt="Zákusky">
+    <h3>Zákusky</h3>
+    <p>Denně čerstvé dezerty a zákusky – klasické i moderní.</p>
+</article>
+
+<article>
+    <img src="dorty.webp" alt="Dorty">
+    <h3>Dorty</h3>
+    <p>Dorty Vám rádi připravíme na objednávku.</p>
+</article>
+
+<article>
+    <img src="zmrzlina.webp" alt="Zmrzlina">
+    <h3>Zmrzlina</h3>
+    <p>Osvěžující točená zmrzlina v různých příchutích.</p>
+</article>
+
+<article>
+    <img src="domaci-med.webp" alt="Domácí med">
+    <h3>Domácí med</h3>
+    <p>Domácí med, medové výrobky a kosmetika k prodeji.</p>
+</article>
+
+</div>
+
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="dorty-zakusky">
+
+<div class="container">
+
+<h2>Zákusky</h2>
+
+<p class="section-intro">
+    Přijďte si k nám vychutnat klasické i moderní zákusky – od tartaletek, domácího medovníku, ovocných zákusků a větrníků až po řezy a mnoho dalších sladkých laskomin.
+</p>
+
+<div class="desserts-gallery">
+
+    <img src="cukrarna1.webp" alt="Domácí zákusky">
+    <img src="cukrarna2.webp" alt="Domácí zákusky">
+    <img src="cukrarna3.webp" alt="Domácí zákusky">
+    <img src="cukrarna4.webp" alt="Domácí zákusky">
+
+</div>
+
+<h2 style="margin-top:90px;">Dorty</h2>
+
+<p class="section-intro">
+    Dortíky Vám rádi připravíme na objednávku. Máslové, jogurtové, čokoládové, šlehačkové, marcipánové nebo jakékoli jiné přesně podle Vašich představ.
+</p>
+
+<div class="desserts-gallery">
+
+    <img src="cukrarna5.webp" alt="Dort na objednávku">
+    <img src="cukrarna6.webp" alt="Dort na objednávku">
+    <img src="cukrarna11.webp" alt="Dort na objednávku">
+    <img src="cukrarna12.webp" alt="Dort na objednávku">
+
+</div>
+
+</div>
+
+</section>
+
+<div class="divider"></div>
+
+
+<section class="about container" id="onas">
+
+    <div class="about-text">
+
+        
+        <h2>O nás</h2>
+
+        <p>
+            Jsme rodinná kavárna s více než 13letou tradicí.
+            Nacházíme se v malebném městečku <strong>Bělá nad Radbuzou</strong> v srdci Českého lesa.
+        </p>
+
+        <br>
+
+        <p>
+            Nabízíme různé druhy kávy, dezertů, klasickách i moderních, domácí pečení a výrobu dortů na zakázku. Také prodáváme náš vlastní <strong>domácí med</strong> a medové výrobky z vlastní produkce.
+        </p>
+
+    </div>
+
+    <div class="about-photo about-family">
+    <img src="rodinna-tradice.webp" alt="">
+</div>
+
+<div class="about-photo about-interior">
+    <img src="interier.webp" alt="">
+</div>
+
+</section>
+
+<section class="honey-banner" id="med">
+
+    <div class="container">
+
+        <picture>
+
+            <source media="(max-width:900px)" srcset="banner-mobil.webp">
+
+            <img src="banner-pc.webp" alt="Med a medové výrobky">
+
+        </picture>
+
+    </div>
+
+</section>
+
+<div class="divider"></div>
+
+<section class="section contact-section" id="kontakt">
+
+<div class="container contact-grid">
+
+    <!-- Levý sloupec -->
+
+    <div class="contact-info">
+
+        <small><i class="fas fa-location-dot"></i> Kde nás najdete</small>
+
+        <h3>
+            <a href="https://maps.app.goo.gl/qKapCW2yFeZ7n5Ez9" target="_blank">
+                Čečínská 146<br>
+                345 26 Bělá nad Radbuzou
+            </a>
+        </h3>
+
+<small><i class="fas fa-phone"></i> Telefon</small>
+
+        <p>
+    <a href="tel:+420736676078">
+        <strong>+420 736 676 078</strong>
+    </a>
+</p>
+
+<small><i class="fas fa-envelope"></i> E-mail</small>
+
+        <p>
+    <a href="mailto:medova.kavarna@seznam.cz">
+        <strong>medova.kavarna@seznam.cz</strong>
+    </a>
+</p>
+
+    </div>
+
+    <!-- Prostřední sloupec -->
+
+    <div class="contact-map">
+
+        <iframe
+            src="https://www.google.com/maps?q=Medová+kavárna+Bělá+nad+Radbuzou&output=embed"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+    <!-- Pravý sloupec -->
+
+    <div class="opening-hours">
+
+        <small><i class="fas fa-clock"></i> Otevírací doba</small>
+
+        <div class="hours-list">
+
+    <div><strong>Pondělí – čtvrtek</strong></div>
+    <div>9:00–19:00</div>
+
+    <div><strong>Pátek</strong></div>
+    <div>9:00–22:00</div>
+
+    <div><strong>Sobota</strong></div>
+    <div>10:00–19:00</div>
+
+    <div><strong>Neděle</strong></div>
+    <div>13:00–19:00</div>
+
+</div>
+
+        <small>Sledujte nás</small>
+
+<div class="socials">
+
+    <a href="https://www.facebook.com/profile.php?id=100057436630458&locale=cs_CZ" target="_blank">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://www.instagram.com/kavarnamedova/" target="_blank">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+</div>
+
+    </div>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 Medová kavárna • Designed by ZajaIT
+</footer>
+
+<script>
+document.querySelectorAll("nav a").forEach(link => {
+
+    link.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        document
+            .querySelector(this.getAttribute("href"))
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    });
+
+});
+</script>
+
+</body>
+</html>
