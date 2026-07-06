@@ -480,41 +480,124 @@ footer {
     border-top: 4px solid #e7d8bf;
 }
 
+   /* =====================================================
+   HAMBURGER
+===================================================== */
+
+.hamburger{
+    display:none;
+    background:none;
+    border:0;
+    font-size:34px;
+    cursor:pointer;
+    color:#222;
+    z-index:1001;
+}
+
 /* =====================================================
    MOBIL
 ===================================================== */
 
 @media (max-width:900px) {
 
-    nav {
-        display: none;
+    .nav{
+        height:80px;
     }
 
-    .hero h1 {
-        font-size: 50px;
+    .logo img{
+        height:48px;
     }
 
-    .icons .grid {
-        grid-template-columns: repeat(2,1fr);
+    .hamburger{
+        display:block;
     }
 
-    .about {
-        grid-template-columns: 1fr;
+    nav{
+        position:fixed;
+        top:80px;
+        left:0;
+        width:100%;
+        background:rgba(255,249,239,.98);
+        backdrop-filter:blur(8px);
+        transform:translateY(-120%);
+        opacity:0;
+        visibility:hidden;
+        transition:.35s;
+        z-index:998;
     }
 
- .desserts-gallery {
-        grid-template-columns: 1fr;
-        gap: 24px;
+    nav.open{
+        transform:translateY(0);
+        opacity:1;
+        visibility:visible;
     }
 
-.contact-grid{
-    grid-template-columns:1fr;
-}
+    nav ul{
+        display:flex;
+        flex-direction:column;
+        gap:0;
+        padding:20px 0;
+    }
 
-.contact-map iframe{
-    min-height:300px;
-}
+    nav li{
+        width:100%;
+    }
 
+    nav a{
+        display:block;
+        padding:18px 24px;
+        text-align:center;
+        border-bottom:1px solid #eadcc5;
+    }
+
+    .nav-btn{
+        border:none;
+        background:none;
+        border-radius:0;
+        padding:18px 24px;
+    }
+
+    body.menu-open{
+        overflow:hidden;
+    }
+
+    .hero .content{
+        margin-left:0;
+        padding:120px 15px 0;
+    }
+
+    .hero-title .script{
+        font-size:54px;
+    }
+
+    .hero .hero-location{
+        font-size:28px;
+    }
+
+    .hero p{
+        font-size:18px;
+    }
+
+    .icons .grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .desserts-gallery{
+        grid-template-columns:1fr;
+        gap:24px;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-map iframe{
+        min-height:300px;
+    }
 
 }
 
@@ -527,6 +610,10 @@ footer {
 <div class="container nav">
 <a class="logo" href="#"><img src="logo.png" alt="Medová kavárna"></a>
 
+   <button class="hamburger" aria-label="Menu">
+    ☰
+</button>
+   
 <nav>
 <ul>
     <li><a href="#hero">DOMŮ</a></li>
@@ -789,21 +876,38 @@ footer {
 </footer>
 
 <script>
+
+const hamburger = document.querySelector(".hamburger");
+const nav = document.querySelector("nav");
+
+hamburger.addEventListener("click", () => {
+
+    nav.classList.toggle("open");
+    document.body.classList.toggle("menu-open");
+
+    hamburger.textContent =
+        nav.classList.contains("open") ? "✕" : "☰";
+
+});
+
 document.querySelectorAll("nav a").forEach(link => {
 
-    link.addEventListener("click", function(e) {
+    link.addEventListener("click", function(e){
 
         e.preventDefault();
 
-        document
-            .querySelector(this.getAttribute("href"))
-            .scrollIntoView({
-                behavior: "smooth"
-            });
+        nav.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        hamburger.textContent="☰";
+
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior:"smooth"
+        });
 
     });
 
 });
+
 </script>
 
 </body>
