@@ -385,20 +385,26 @@ nav a:hover {
 }
 
 .contact-grid small{
-    display:inline-block;
+    display:flex;
+    align-items:center;
+    gap:8px;
     color:#222;
     font-weight:700;
     letter-spacing:1px;
     text-transform:uppercase;
     margin-bottom:22px;
-    padding-bottom:8px;
-    border-bottom:3px solid var(--gold);
 }
 
 .contact-grid small i{
-    color: #222;
-    margin-right: 8px;
-    font-size: 15px;
+    color:#222;
+    font-size:15px;
+    flex-shrink:0;
+}
+
+.contact-grid small span{
+    display:inline-block;
+    padding-bottom:8px;
+    border-bottom:3px solid var(--gold);
 }
 
 .contact-grid h3{
@@ -817,7 +823,7 @@ footer {
 
     <div class="contact-info">
 
-        <small><i class="fas fa-location-dot"></i> Kde nás najdete</small>
+        <small><i class="fas fa-location-dot"></i><span>Kde nás najdete</span></small>
 
         <h3>
             <a href="https://maps.app.goo.gl/qKapCW2yFeZ7n5Ez9" target="_blank">
@@ -826,7 +832,7 @@ footer {
             </a>
         </h3>
 
-<small><i class="fas fa-phone"></i> Telefon</small>
+<small><i class="fas fa-phone"></i><span>Telefon</span></small>
 
         <p>
     <a href="tel:+420736676078">
@@ -834,7 +840,7 @@ footer {
     </a>
 </p>
 
-<small><i class="fas fa-envelope"></i> E-mail</small>
+<small><i class="fas fa-envelope"></i><span>E-mail</span></small>
 
         <p>
     <a href="mailto:medova.kavarna@seznam.cz">
@@ -860,7 +866,7 @@ footer {
 
     <div class="opening-hours">
 
-        <small><i class="fas fa-clock"></i> Otevírací doba</small>
+        <small><i class="fas fa-clock"></i><span>Otevírací doba</span></small>
 
         <div class="hours-list">
 
@@ -878,7 +884,7 @@ footer {
 
 </div>
 
-        <small>Sledujte nás</small>
+        <small><span>Sledujte nás</span></small>
 
 <div class="socials">
 
