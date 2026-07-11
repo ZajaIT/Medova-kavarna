@@ -1146,6 +1146,12 @@ footer {
 
 <script>
 
+   history.scrollRestoration = "manual";
+
+window.addEventListener("load", () => {
+    window.scrollTo(0, 0);
+});
+
 const hamburger = document.querySelector(".hamburger");
 const nav = document.querySelector("nav");
 
