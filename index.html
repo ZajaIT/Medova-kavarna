@@ -370,26 +370,46 @@ nav a:hover {
     border-radius: 20px;
 }
 
-   .honey-gallery{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:30px;
+.honey-desktop{
     margin-top:35px;
 }
 
-.honey-photo{
-    width:100%;
-    height:420px;
-    object-fit:cover;
-    display:block;
-    border-radius:20px;
+.honey-top{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
 }
 
-.honey-photo-full{
-    margin-top:30px;
+.honey-left{
+    display:grid;
+    grid-template-rows:1fr 1fr;
+    gap:30px;
+}
+
+.honey-left img,
+.honey-right img{
     width:100%;
-    height:520px;
+    display:block;
+    border-radius:20px;
     object-fit:cover;
+}
+
+.vcelar-full{
+    width:100%;
+    display:block;
+    border-radius:20px;
+    margin-top:30px;
+}
+
+.honey-mobile{
+    display:none;
+}
+
+.honey-mobile .honey-photo{
+    width:100%;
+    display:block;
+    border-radius:20px;
+    margin-top:25px;
 }
 
    .honey-types{
@@ -736,18 +756,12 @@ footer {
     margin:0 10px;
 }
 
-   .honey-gallery{
-    grid-template-columns:1fr;
-    gap:25px;
+ .honey-desktop{
+    display:none;
 }
 
-.honey-photo{
-    height:auto;
-}
-
-.honey-photo-full{
-    margin-top:25px;
-    height:auto;
+.honey-mobile{
+    display:block;
 }
 
 .hero-title,
@@ -982,15 +996,41 @@ footer {
 
         </picture>
 
-       <div class="honey-gallery">
+       <!-- Desktop -->
+<div class="honey-desktop">
+
+    <div class="honey-top">
+
+        <div class="honey-left">
+
+            <img src="med-benda.webp" alt="Med Benda">
+
+            <img src="med-benda2.webp" alt="Med Benda">
+
+        </div>
+
+        <div class="honey-right">
+
+            <img src="perga.webp" alt="Perga">
+
+        </div>
+
+    </div>
+
+    <img src="vcelar-benda.webp" alt="Včelař Benda" class="vcelar-full">
+
+</div>
+
+<!-- Mobil -->
+<div class="honey-mobile">
 
     <img src="med-benda.webp" alt="Med Benda" class="honey-photo">
 
     <img src="perga.webp" alt="Perga" class="honey-photo">
 
-</div>
+    <img src="vcelar-benda.webp" alt="Včelař Benda" class="honey-photo">
 
-<img src="vcelar-benda.webp" alt="Včelař Benda" class="honey-photo honey-photo-full">
+</div>
 
     </div>
 
