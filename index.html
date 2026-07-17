@@ -438,9 +438,19 @@ nav a:hover {
 
 .icecream-wrap{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:60px;
+    grid-template-columns:auto auto 1fr;
+    gap:45px;
     align-items:center;
+}
+   .icecream-flavour-strip{
+    display:flex;
+    justify-content:center;
+}
+
+.icecream-flavour-strip img{
+    width:55px;
+    height:auto;
+    display:block;
 }
    .icecream-photo{
     display:flex;
@@ -912,6 +922,9 @@ footer {
     max-width:320px;
     margin:0 auto;
 }
+   .icecream-flavour-strip{
+    display:none;
+}
 
 }
 
@@ -1078,6 +1091,10 @@ footer {
         <div class="icecream-photo desktop-only">
             <img src="foto-tocena-zmrzlina.webp" alt="Točená zmrzlina">
         </div>
+
+       <div class="icecream-flavour-strip desktop-only">
+    <img src="prichute-zmrzliny.webp" alt="Příchutě zmrzliny">
+</div>
 
         <div class="icecream-text">
 
