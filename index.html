@@ -432,6 +432,48 @@ nav a:hover {
     scroll-margin-top: 100px;
 }
 
+   /* =====================================================
+   ZMRZLINA
+===================================================== */
+
+.icecream-wrap{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.icecream-photo img{
+    width:100%;
+    display:block;
+    border-radius:20px;
+}
+
+.icecream-text h2{
+    font-family:"Bree Serif",serif;
+    font-size:54px;
+    font-weight:normal;
+    margin-bottom:25px;
+}
+
+.icecream-label{
+    font-size:22px;
+    font-weight:700;
+    color:#444;
+    margin-bottom:18px;
+}
+
+.icecream-flavours{
+    font-size:38px;
+    font-weight:800;
+    letter-spacing:2px;
+    color:var(--gold);
+}
+
+.mobile-only{
+    display:none;
+}
+
 /* =====================================================
    KONTAKT
 ===================================================== */
@@ -810,6 +852,32 @@ footer {
     display:block;
 }
 
+   .icecream-wrap{
+    grid-template-columns:1fr;
+    gap:30px;
+    text-align:center;
+}
+
+.desktop-only{
+    display:none;
+}
+
+.mobile-only{
+    display:block;
+}
+
+.icecream-text h2{
+    font-size:46px;
+}
+
+.icecream-label{
+    font-size:20px;
+}
+
+.icecream-flavours{
+    font-size:30px;
+}
+
 }
 
 </style>
@@ -962,6 +1030,40 @@ footer {
 </div>
 
 </div>
+
+</section>
+
+<div class="divider"></div>
+
+   <section class="section icecream-section" id="zmrzlina">
+
+    <div class="container icecream-wrap">
+
+        <!-- Desktop foto -->
+        <div class="icecream-photo desktop-only">
+            <img src="zmrzlina.webp" alt="Točená zmrzlina">
+        </div>
+
+        <div class="icecream-text">
+
+            <h2>Zmrzlina</h2>
+
+            <p class="icecream-label">
+                Dnes točíme příchuť:
+            </p>
+
+            <p class="icecream-flavours">
+                JAHODA • VANILKA
+            </p>
+
+        </div>
+
+        <!-- Mobil foto -->
+        <div class="icecream-photo mobile-only">
+            <img src="zmrzlina.webp" alt="Točená zmrzlina">
+        </div>
+
+    </div>
 
 </section>
 
