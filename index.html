@@ -1166,13 +1166,12 @@ footer {
                 Dnes točíme příchuť:
             </p>
 
-            <p class="icecream-flavours desktop-flavours">
-    JAHODA • VANILKA
+            <p class="icecream-flavours desktop-flavours" id="desktopFlavours">
+    Načítám...
 </p>
 
-<p class="icecream-flavours mobile-flavours">
-    JAHODA<br>
-    VANILKA
+<p class="icecream-flavours mobile-flavours" id="mobileFlavours">
+    Načítám...
 </p>
 
         </div>
@@ -1426,6 +1425,19 @@ document.querySelectorAll("nav a").forEach(link => {
     });
 
 });
+
+   fetch("https://script.google.com/macros/s/AKfycbxDNlpkNmGKTvQcEpGrM4tnSaIcPCpNU6qXZEMGEg5ZfA_pbBhAD5axTmu2lv4rjk129w/exec")
+.then(response => response.json())
+.then(data => {
+
+    document.getElementById("desktopFlavours").textContent =
+        data.left.toUpperCase() + " • " + data.right.toUpperCase();
+
+    document.getElementById("mobileFlavours").innerHTML =
+        data.left.toUpperCase() + "<br>" + data.right.toUpperCase();
+
+})
+.catch(error => console.error(error));
 
 </script>
 
