@@ -1668,6 +1668,14 @@ document.body.classList.remove("popup-open");
     }
 });
 
+  const christmasBar = document.getElementById("christmasBar");
+
+christmasBar.addEventListener("click", () => {
+    christmasPopup.classList.remove("hidden");
+    document.documentElement.classList.add("popup-open");
+    document.body.classList.add("popup-open");
+});
+
 </script>
 
 </body>
