@@ -737,6 +737,49 @@ footer {
     display:none;
 }
 
+  /* =====================================================
+   VÁNOČNÍ CUKROVÍ
+===================================================== */
+
+.christmas-bar{
+    position:relative;
+    z-index:10;
+
+    margin-top:88px;
+    width:100%;
+
+    background:var(--gold);
+    color:#222;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
+
+    padding:9px 15px;
+
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:1.5px;
+    text-align:center;
+
+    cursor:pointer;
+}
+
+.christmas-bar-cta{
+    display:inline-block;
+
+    background:#222;
+    color:#fff;
+
+    padding:7px 16px;
+    border-radius:20px;
+
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
 /* =====================================================
    MOBIL
 ===================================================== */
@@ -1016,6 +1059,22 @@ footer {
     display:none;
 }
 
+  .christmas-bar{
+    margin-top:80px;
+    flex-direction:column;
+    gap:6px;
+
+    padding:8px 10px;
+
+    font-size:11px;
+    letter-spacing:.7px;
+}
+
+.christmas-bar-cta{
+    padding:5px 13px;
+    font-size:10px;
+}
+
 }
 
 </style>
@@ -1044,6 +1103,12 @@ footer {
 
 </div>
 </header>
+
+  <!-- VÁNOČNÍ CUKROVÍ -->
+<div class="christmas-bar" id="christmasBar">
+    <span>VÁNOČNÍ CUKROVÍ — OBJEDNÁVKY DO 30. 11.</span>
+    <span class="christmas-bar-cta">ZOBRAZIT NABÍDKU</span>
+</div>
 
 <section class="hero" id="hero">
 
