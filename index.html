@@ -782,20 +782,6 @@ footer {
     letter-spacing:1px;
 }
 
-  .christmas-bar-fixed{
-    position:fixed;
-    top:88px;
-    left:0;
-    right:0;
-    z-index:998;
-    margin:0;
-    display:none;
-}
-
-.christmas-bar-fixed.show{
-    display:flex;
-}
-
 
 /* =====================================================
    MOBIL
@@ -1556,34 +1542,6 @@ document.querySelectorAll("nav a").forEach(link => {
 
 })
 .catch(error => console.error(error));
-
-const christmasBar = document.getElementById("christmasBar");
-const christmasFixed = christmasBar.cloneNode(true);
-const header = document.querySelector("header");
-
-christmasFixed.removeAttribute("id");
-christmasFixed.classList.add("christmas-bar-fixed");
-document.body.appendChild(christmasFixed);
-
-function updateChristmasBar(){
-
-    const headerBottom = header.getBoundingClientRect().bottom;
-    christmasFixed.style.top = headerBottom + "px";
-
-    const trigger = christmasBar.offsetTop;
-
-    if(window.scrollY >= trigger){
-        christmasFixed.classList.add("show");
-        christmasBar.style.visibility = "hidden";
-    }else{
-        christmasFixed.classList.remove("show");
-        christmasBar.style.visibility = "visible";
-    }
-}
-
-window.addEventListener("scroll", updateChristmasBar);
-window.addEventListener("resize", updateChristmasBar);
-updateChristmasBar();
 
 </script>
 
