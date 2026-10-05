@@ -838,6 +838,26 @@ footer {
     z-index:2;
 }
 
+  .christmas-popup-cta{
+    display:block;
+    margin:14px auto 0;
+    width:fit-content;
+    padding:11px 24px;
+
+    background:var(--gold);
+    color:#222;
+
+    border-radius:20px;
+    text-decoration:none;
+
+    font-size:13px;
+    font-weight:800;
+    letter-spacing:1px;
+    text-align:center;
+
+    cursor:pointer;
+}
+
 .christmas-popup.hidden{
     display:none;
 }
@@ -1583,6 +1603,10 @@ body.popup-open{
                  alt="Vánoční cukroví – objednávky">
         </a>
 
+      <a href="#kontakt" class="christmas-popup-cta">
+    OBJEDNAT VÁNOČNÍ CUKROVÍ
+</a>
+
     </div>
 </div>
 
@@ -1674,6 +1698,14 @@ christmasBar.addEventListener("click", () => {
     christmasPopup.classList.remove("hidden");
     document.documentElement.classList.add("popup-open");
     document.body.classList.add("popup-open");
+});
+
+  const christmasPopupCta = document.querySelector(".christmas-popup-cta");
+
+christmasPopupCta.addEventListener("click", () => {
+    christmasPopup.classList.add("hidden");
+    document.documentElement.classList.remove("popup-open");
+    document.body.classList.remove("popup-open");
 });
 
 </script>
