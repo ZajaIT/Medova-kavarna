@@ -1091,10 +1091,6 @@ footer {
     font-size:10px;
 }
 
- .christmas-bar-fixed{
-    top:112px;
-}
-
 }
 
 </style>
@@ -1561,14 +1557,19 @@ document.querySelectorAll("nav a").forEach(link => {
 })
 .catch(error => console.error(error));
 
-  const christmasBar = document.getElementById("christmasBar");
+const christmasBar = document.getElementById("christmasBar");
 const christmasFixed = christmasBar.cloneNode(true);
+const header = document.querySelector("header");
 
 christmasFixed.removeAttribute("id");
 christmasFixed.classList.add("christmas-bar-fixed");
 document.body.appendChild(christmasFixed);
 
-window.addEventListener("scroll", () => {
+function updateChristmasBar(){
+
+    const headerBottom = header.getBoundingClientRect().bottom;
+    christmasFixed.style.top = headerBottom + "px";
+
     const trigger = christmasBar.offsetTop;
 
     if(window.scrollY >= trigger){
@@ -1578,7 +1579,11 @@ window.addEventListener("scroll", () => {
         christmasFixed.classList.remove("show");
         christmasBar.style.visibility = "visible";
     }
-});
+}
+
+window.addEventListener("scroll", updateChristmasBar);
+window.addEventListener("resize", updateChristmasBar);
+updateChristmasBar();
 
 </script>
 
