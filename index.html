@@ -743,14 +743,18 @@ footer {
 
 /* Proužek pod navbarem */
 .christmas-bar{
-    position:fixed;
-    top:88px;
-    left:0;
+    position:relative;
     width:100%;
-    z-index:997;
+    margin-top:88px;
+    z-index:10;
 
     background:var(--gold);
     color:#222;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:25px;
 
     text-align:center;
     font-size:14px;
@@ -760,6 +764,18 @@ footer {
     padding:9px 15px;
 
     cursor:pointer;
+}
+
+.christmas-bar-cta{
+    display:inline-block;
+    background:#222;
+    color:#fff;
+    padding:7px 16px;
+    border-radius:20px;
+
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1px;
 }
 
 /* Popup přes obrazovku */
@@ -775,6 +791,42 @@ footer {
     padding:25px;
 
     background:rgba(0,0,0,.78);
+}
+
+  .christmas-popup-offer{
+    display:block;
+    text-decoration:none;
+    color:inherit;
+}
+
+.christmas-order{
+    background:var(--gold);
+    color:#222;
+    text-align:center;
+
+    padding:12px 20px;
+
+    border-radius:0 0 8px 8px;
+
+    cursor:pointer;
+}
+
+.christmas-order span{
+    display:block;
+
+    font-size:14px;
+    font-weight:800;
+    letter-spacing:1.2px;
+}
+
+.christmas-order small{
+    display:block;
+
+    margin-top:2px;
+
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.3px;
 }
 
 /* Obal letáku */
@@ -795,7 +847,7 @@ footer {
     width:auto;
     height:auto;
 
-    border-radius:8px;
+    border-radius:8px 8px 0 0;
 
     box-shadow:0 15px 50px rgba(0,0,0,.45);
 
@@ -1113,10 +1165,18 @@ footer {
   /* VÁNOČNÍ CUKROVÍ */
 
 .christmas-bar{
-    top:80px;
-    font-size:12px;
-    letter-spacing:.8px;
+    margin-top:80px;
+    flex-direction:column;
+    gap:6px;
+
+    font-size:11px;
+    letter-spacing:.7px;
     padding:8px 10px;
+}
+
+.christmas-bar-cta{
+    padding:5px 13px;
+    font-size:10px;
 }
 
 .christmas-popup{
@@ -1174,7 +1234,8 @@ footer {
 
   <!-- VÁNOČNÍ PROUŽEK -->
 <div class="christmas-bar" id="christmasBar">
-    🎄 VÁNOČNÍ CUKROVÍ — OBJEDNÁVKY DO 30. 11. 🎄
+    <span>VÁNOČNÍ CUKROVÍ — OBJEDNÁVKY DO 30. 11.</span>
+    <span class="christmas-bar-cta">ZOBRAZIT NABÍDKU</span>
 </div>
 
 <section class="hero" id="hero">
@@ -1561,18 +1622,25 @@ footer {
 
     <div class="christmas-popup-content">
 
-        <button class="christmas-popup-close"
-                id="christmasPopupClose"
-                aria-label="Zavřít">
-            ×
-        </button>
+    <button class="christmas-popup-close"
+            id="christmasPopupClose"
+            aria-label="Zavřít">
+        ×
+    </button>
 
-        <a href="#kontakt" id="christmasPopupLink">
-            <img src="vanocni-cukrovi-letak.jpg"
-                 alt="Vánoční cukroví – objednávky do 30. 11. 2026">
-        </a>
+    <a href="#kontakt" id="christmasPopupLink" class="christmas-popup-offer">
 
-    </div>
+        <img src="vanocni-cukrovi-letak.jpg"
+             alt="Vánoční cukroví – objednávky do 30. 11. 2026">
+
+        <div class="christmas-order">
+            <span>OBJEDNAT VÁNOČNÍ CUKROVÍ</span>
+            <small>Kliknutím přejdete na kontakt</small>
+        </div>
+
+    </a>
+
+</div>
 
 </div>
 
