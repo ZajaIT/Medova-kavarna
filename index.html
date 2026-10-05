@@ -840,6 +840,10 @@ footer {
     display:none;
 }
 
+  body.popup-open{
+    overflow:hidden;
+}
+
 
 /* =====================================================
    MOBIL
@@ -1630,16 +1634,31 @@ document.querySelectorAll("nav a").forEach(link => {
 })
 .catch(error => console.error(error));
 
-  const christmasPopup = document.getElementById("christmasPopup");
+const christmasPopup = document.getElementById("christmasPopup");
 const christmasPopupClose = document.getElementById("christmasPopupClose");
 const christmasPopupLink = document.getElementById("christmasPopupLink");
 
+/* při otevření stránky zakázat scroll */
+document.body.classList.add("popup-open");
+
+/* zavření křížkem */
 christmasPopupClose.addEventListener("click", () => {
     christmasPopup.classList.add("hidden");
+    document.body.classList.remove("popup-open");
 });
 
+/* klik na plakát = zavřít + pokračovat na kontakt */
 christmasPopupLink.addEventListener("click", () => {
     christmasPopup.classList.add("hidden");
+    document.body.classList.remove("popup-open");
+});
+
+/* klik/tap mimo plakát = zavřít */
+christmasPopup.addEventListener("click", (e) => {
+    if(e.target === christmasPopup){
+        christmasPopup.classList.add("hidden");
+        document.body.classList.remove("popup-open");
+    }
 });
 
 </script>
