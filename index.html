@@ -782,6 +782,64 @@ footer {
     letter-spacing:1px;
 }
 
+  /* =====================================================
+   VÁNOČNÍ POPUP
+===================================================== */
+
+.christmas-popup{
+    position:fixed;
+    inset:0;
+    z-index:5000;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:25px;
+
+    background:rgba(0,0,0,.65);
+}
+
+.christmas-popup-box{
+    position:relative;
+    max-width:520px;
+    width:100%;
+}
+
+.christmas-popup-box img{
+    display:block;
+    width:100%;
+    height:auto;
+    max-height:85vh;
+    object-fit:contain;
+    cursor:pointer;
+}
+
+.christmas-popup-close{
+    position:absolute;
+    top:-15px;
+    right:-15px;
+
+    width:40px;
+    height:40px;
+
+    border:0;
+    border-radius:50%;
+
+    background:#222;
+    color:#fff;
+
+    font-size:26px;
+    line-height:40px;
+    cursor:pointer;
+
+    z-index:2;
+}
+
+.christmas-popup.hidden{
+    display:none;
+}
+
 
 /* =====================================================
    MOBIL
@@ -1075,6 +1133,19 @@ footer {
 .christmas-bar-cta{
     padding:5px 13px;
     font-size:10px;
+}
+
+  .christmas-popup{
+    padding:18px;
+}
+
+.christmas-popup-box{
+    max-width:420px;
+}
+
+.christmas-popup-close{
+    top:-12px;
+    right:-8px;
 }
 
 }
@@ -1491,6 +1562,22 @@ footer {
     © 2026 Medová kavárna • IČO: 64352331 • Designed by ZajaIT
 </footer>
 
+  <!-- VÁNOČNÍ POPUP -->
+<div class="christmas-popup" id="christmasPopup">
+    <div class="christmas-popup-box">
+
+        <button class="christmas-popup-close" id="christmasPopupClose">
+            ×
+        </button>
+
+        <a href="#kontakt" id="christmasPopupLink">
+            <img src="vanocni-cukrovi-plakat.jpg"
+                 alt="Vánoční cukroví – objednávky">
+        </a>
+
+    </div>
+</div>
+
 <script>
 
    history.scrollRestoration = "manual";
@@ -1542,6 +1629,18 @@ document.querySelectorAll("nav a").forEach(link => {
 
 })
 .catch(error => console.error(error));
+
+  const christmasPopup = document.getElementById("christmasPopup");
+const christmasPopupClose = document.getElementById("christmasPopupClose");
+const christmasPopupLink = document.getElementById("christmasPopupLink");
+
+christmasPopupClose.addEventListener("click", () => {
+    christmasPopup.classList.add("hidden");
+});
+
+christmasPopupLink.addEventListener("click", () => {
+    christmasPopup.classList.add("hidden");
+});
 
 </script>
 
